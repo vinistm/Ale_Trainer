@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Treinos Ale</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <button id="btn-movimentos">Movimentos</button>
+
+    <select id="select-week">
+      <option value="semana1">31 de Julho a 4 Agosto</option>
+      <option value="semana2">7 a 11 Agosto</option>
+      <option value="semana3">14 a 18 Agosto</option>
+      <option value="semana4">21 a 25 Agosto</option>
+    </select>
+
+    <div class="Card-Modal">
+      <!-- Dias da semana -->
+      <div class="day" data-day="Segunda-feira">Segunda-feira</div>
+      <div class="day" data-day="Terça-feira">Terça-feira</div>
+      <div class="day" data-day="Quarta-feira">Quarta-feira</div>
+      <div class="day" data-day="Quinta-feira">Quinta-feira</div>
+      <div class="day" data-day="Sexta-feira">Sexta-feira</div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal">
+      <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <div id="modal-text"></div>
+        <!-- Aqui você pode adicionar o elemento para o vídeo do YouTube -->
+      </div>
+    </div>
+
+    <script>
+      const treinos = {
+        semana1: {
+          "Segunda-feira": `<pre>
+  31/07
+Aquecimento
+3 rounds
+
+30"jumping jacks
+30"shoulder taps plank
+30" push ups
+30" air squats
+30" squat hold
+
+2 rounds
+15" goodmorning
+15" push press
+15" front squats
+
+Tecnica
+3 rounds
+12 biceps curl
+12 bulgarian split squat
+
+Treino
+amrap 12'
+1 double dumbell thruster ( 12 kg)
+30 single under
+2 double dumbell thruster
+30 single under
+3 double dumbell thruster
+30 single under
+4 double dumbell thruster
+30 single under
+...
+</pre>`,
+          "Terça-feira": `<pre>
+  01/08
+  
+Aquecimento
+2 rounds
+20 mountain climb
+10 single under
+20" plank
+5 sit ups
+
+2 rounds
+5 goodmorning
+5 back squats
+5 push press
+5 hang muscle clean
+5 hang power clean
+
+
+Treino
+amrap 30'
+50 single under
+30 sit ups
+15 hang power clean e jerk( barra + 8 kg)
+
+* a cada 10' 600 m run</pre>`,
+          "Quarta-feira": `<pre>
+  02/08
+  Aquecimento
+3 rounds
+200 m run
+30" down dog push ups
+20"plank
+20" mountain climb
+10"v ups
+
+
+Tecnica
+3 rounds
+10 v ups
+10 hollow rocks
+20" superman hold
+15 down dog push ups
+
+
+Treino
+
+5 rounds
+12 v ups
+400 m run
+24 dumbell snatch ( dumbell 8 kg)
+rest '1 entre os rounds
+</pre>`,
+          "Quinta-feira": `<pre>
+  03/08
+  Aquecimento
+2 rounds
+30" samson
+30" push ups down dog
+30" air squats
+
+2 rounds
+5 good morning
+5 back squats
+5 shoulder press
+5 front squats
+5 shoulder press Lento
+5 shoulder press normal
+5 push press
+
+treino
+4 rounds de 3'
+110 single under
+15 double dumbell front squats( 2 dumbell 10 kg)
+max reps shoulder press ( pode ser push press, jerk, shoulder press)</pre>`,
+          "Sexta-feira": `<pre>
+  04/08
+  Aquecimento
+3 rounds
+30" good morning
+30" back squats
+30" deadlift
+15" squat hold
+10 air squats
+5 burpees
+
+tecnica
+3 rounds
+30 russian twisted
+15 barbell hip thrusts
+15 banded face pulls
+
+treino
+5 rounds
+9 hang power clean ( barra + 8 kg)
+45 air squats
+15 burpees
+rest 1'</pre>`,
+        },
+        semana2: {
+          "Segunda-feira": `<pre>
+  07/08
+  Aquecimento
+  Tecnica
+  Treino.</pre>`,
+          "Terça-feira": `<pre>
+  08/08
+  Aquecimento
+  Tecnica
+  Treino.</pre>`,
+          "Quarta-feira": `<pre>
+  09/08
+  Aquecimento
+  Tecnica
+  Treino</pre>`,
+          "Quinta-feira": `<pre>
+  10/08
+  Aquecimento
+  Tecnica
+  Treino.</pre>`,
+          "Sexta-feira": `<pre>
+  11/08
+  Aquecimento
+  Tecnica
+  Treino.</pre>`,
+        },
+        semana3: {
+          "Segunda-feira": `<pre>
+  14/08
+  Aquecimento
+  Tecnica
+  Treino.</pre>`,
+          "Terça-feira": `<pre>
+  15/08
+  Aquecimento
+  Tecnica
+  Treino.</pre>`,
+          "Quarta-feira": `<pre>
+  16/08
+  Aquecimento
+  Tecnica
+  Treino</pre>`,
+          "Quinta-feira": `<pre>
+  17/08
+  Aquecimento
+  Tecnica
+  Treino.</pre>`,
+          "Sexta-feira": `<pre>
+  18/08
+  Aquecimento
+  Tecnica
+  Treino.</pre>`,
+        },
+        semana4: {
+          "Segunda-feira": `<pre>
+  21/08
+  Aquecimento
+  Tecnica
+  Treino.</pre>`,
+          "Terça-feira": `<pre>
+  22/08
+  Aquecimento
+  Tecnica
+  Treino.</pre>`,
+          "Quarta-feira": `<pre>
+  23/08
+  Aquecimento
+  Tecnica
+  Treino</pre>`,
+          "Quinta-feira": `<pre>
+  24/08
+  Aquecimento
+  Tecnica
+  Treino.</pre>`,
+          "Sexta-feira": `<pre>
+  25/08
+  Aquecimento
+  Tecnica
+  Treino.</pre>`,
+        },
+      };
+
+      // Função para abrir o modal com a descrição do movimento
+      function openModal(day) {
+        const modal = document.querySelector(".modal");
+        const modalText = document.getElementById("modal-text");
+        const selectedWeek = document.getElementById("select-week").value;
+
+        modalText.innerHTML = treinos[selectedWeek][day];
+        modal.style.display = "block";
+      }
+
+      // Função para fechar o modal
+      function closeModal() {
+        const modal = document.querySelector(".modal");
+        modal.style.display = "none";
+      }
+
+      // Event listeners para os dias da semana
+      const days = document.querySelectorAll(".day");
+      days.forEach((day) => {
+        day.addEventListener("click", () => {
+          const selectedDay = day.getAttribute("data-day");
+          openModal(selectedDay); // Altere a semana conforme necessário
+        });
+      });
+
+      // Event listener para o botão "Movimentos"
+
+      // Event listener para o botão de fechar o modal
+      const closeBtn = document.querySelector(".close-btn");
+      closeBtn.addEventListener("click", closeModal);
+      const btnMovimentos = document.getElementById("btn-movimentos");
+      btnMovimentos.addEventListener("click", () => {
+        window.location.href = "movimentos.html";
+      });
+      const modalCloseBtn = document.querySelector(".modal-content .close-btn");
+      modalCloseBtn.addEventListener("click", closeModal);
+    </script>
+  </body>
+</html>

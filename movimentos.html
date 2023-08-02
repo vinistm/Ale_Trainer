@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta tags e título do documento -->
+    <link rel="stylesheet" href="styleM.css" />
+  </head>
+  <body>
+    <button id="btn-voltar">Voltar</button>
+    <h1>Lista de Movimentos</h1>
+    <div class="movimento" id="movimento-1">
+      <h1 class="movimento-nome">Devil press</h1>
+      <div class="movimento-descricao">
+        <!-- Descrição do movimento aqui -->
+        <!-- Exemplo: -->
+        <p>Burpee com Dumbell</p>
+        <a href="https://www.youtube.com/watch?v=hc6dfJHRcD0" class="video-link"
+          >Vídeo do Movimento</a
+        >
+      </div>
+      <button class="modal-btn">Descrição</button>
+    </div>
+
+    <div class="movimento" id="movimento-2">
+      <h1 class="movimento-nome">Man Maker</h1>
+      <div class="movimento-descricao">
+        <!-- Descrição do movimento aqui -->
+        <p>Posicão de prancha</p>
+        <p>Remada lateral</p>
+        <p>Remada lateral</p>
+        <p>Squat clean</p>
+        <p>Thruster</p>
+        <a href="https://www.youtube.com/watch?v=2FrqzCeAjqM" class="video-link"
+          >Vídeo do Movimento</a
+        >
+      </div>
+      <button class="modal-btn">Descrição</button>
+    </div>
+    <div class="movimento" id="movimento-3">
+      <h1 class="movimento-nome">Inch Worm</h1>
+      <div class="movimento-descricao">
+        <!-- Descrição do movimento aqui -->
+        <p>Inicia em pé</p>
+        <p>Com as pernas esticadas inclina os corpo para baixa</p>
+        <p>termina em posicão de prancha</p>
+        <p>faz o movimento contrario para voltar na posção inicial</p>
+        <a href="https://www.youtube.com/watch?v=uwB_lmF3_R0" class="video-link"
+          >Vídeo do Movimento</a
+        >
+      </div>
+      <!-- Exemplo: -->
+      <button class="modal-btn">Descrição</button>
+    </div>
+    <div class="movimento" id="movimento-4">
+      <h1 class="movimento-nome">Samsom</h1>
+      <div class="movimento-descricao">
+        <!-- Descrição do movimento aqui -->
+        <!-- Exemplo: -->
+        <p>Braços esticados para cima</p>
+        <p>Manter a postura e fazer um lunge</p>
+        <p>Pensar no Quadril</p>
+        <a href="https://www.youtube.com/watch?v=OXU75XDjVX0" class="video-link"
+          >Vídeo do Movimento</a
+        >
+      </div>
+      <button class="modal-btn">Descrição</button>
+    </div>
+
+  </div>
+  <div class="movimento" id="movimento-5">
+    <h1 class="movimento-nome">Down dog push ups</h1>
+    <div class="movimento-descricao">
+      <!-- Descrição do movimento aqui -->
+      <!-- Exemplo: -->
+      <p>Posicão de prancha</p>
+      <p>Push up</p>
+      <P>Encaixa a cabeça no ombro</P>
+      <a href="https://www.youtube.com/watch?v=LCLfv60R9XA" class="video-link"
+        >Vídeo do Movimento</a
+      >
+    </div>
+    <button class="modal-btn">Descrição</button>
+  </div>
+
+  <div class="movimento" id="movimento-6">
+    <h1 class="movimento-nome">barbell hip thrusts</h1>
+    <div class="movimento-descricao">
+      <!-- Descrição do movimento aqui -->
+      <!-- Exemplo: -->
+      <a href="https://www.youtube.com/watch?v=Zp26q4BY5HE" class="video-link"
+        >Vídeo do Movimento</a
+      >
+    </div>
+    <button class="modal-btn">Descrição</button>
+  </div>
+  <div class="movimento" id="movimento-7">
+    <h1 class="movimento-nome">banded face pulls</h1>
+    <div class="movimento-descricao">
+      <!-- Descrição do movimento aqui -->
+      <!-- Exemplo: -->
+      <a href="https://www.youtube.com/watch?v=5jgKj8ColLg" class="video-link"
+        >Vídeo do Movimento</a
+      >
+    </div>
+    <button class="modal-btn">Descrição</button>
+  </div>
+    <!-- Resto do código -->
+    <div class="modal" style="display: none">
+      <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <div id="modal-text"></div>
+        <!-- Vídeo dentro do modal -->
+        <div class="video-container">
+          <iframe
+            id="video-iframe"
+            width="560"
+            height="315"
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Event listener para os botões "Abrir Modal"
+      const modalBtns = document.querySelectorAll(".modal-btn");
+      modalBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const descricao = btn.previousElementSibling.innerHTML;
+          const videoLink =
+            btn.previousElementSibling.querySelector(".video-link").href;
+          openModal(descricao, videoLink);
+        });
+      });
+
+      // Função para abrir o modal com a descrição do movimento e o vídeo
+      function openModal(descricao, videoLink) {
+        const modal = document.querySelector(".modal");
+        const modalText = document.getElementById("modal-text");
+        const videoIframe = document.getElementById("video-iframe");
+
+        modalText.innerHTML = descricao;
+        videoIframe.src = videoLink.replace("watch?v=", "embed/"); // Substitui a URL do YouTube para a versão embed
+        modal.style.display = "block";
+      }
+
+      // Função para fechar o modal
+      function closeModal() {
+        const modal = document.querySelector(".modal");
+        const videoIframe = document.getElementById("video-iframe");
+        videoIframe.src = ""; // Remove o link do vídeo quando o modal é fechado
+        modal.style.display = "none";
+      }
+
+      // Event listener para o botão de fechar o modal
+      const modalCloseBtn = document.querySelector(".modal-content .close-btn");
+      modalCloseBtn.addEventListener("click", closeModal);
+
+      const btnvoltar = document.getElementById("btn-voltar");
+      btnvoltar.addEventListener("click", () => {
+        window.location.href = "index.html";
+      });
+    </script>
+  </body>
+</html>
