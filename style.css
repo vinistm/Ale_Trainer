@@ -53,7 +53,7 @@ body {
 
 .day {
   width: 50vw;
-  height: 16vh;
+  height: 14vh;
   background-color: #19800b;
   display: flex;
   align-items: center;
@@ -81,7 +81,7 @@ span {
 }
 
 #select-week {
-  margin: auto;
+  margin: 20px;
   height: 5vh;
   width: 50vw;
   border: none !important;
@@ -118,4 +118,17 @@ span {
   box-shadow: 1px 3px 2px -1px rgba(10, 10, 10, 1);
   border: none !important;
   border-radius: 15px;
+}
+#btn-tabata{
+  width: 50vw;
+  height: 3vh;
+  box-shadow: 1px 3px 2px -1px rgba(10, 10, 10, 1);
+  border: none !important;
+  border-radius: 15px;
+}
+
+.buttons{
+  display: flex;
+  row-gap: 8px;
+  flex-direction: column;
 }
