@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EMOM</title>
+<link rel="stylesheet" href="style_emom.css" />
+</head>
+<body>
+    <button type="button" id="voltar"> Voltar </button>
+<h1>EMOM</h1>
+<div  id="escolha">
+  <label for="rounds">Rounds:</label>
+  <select id="rounds">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+  </select>
+  <label for="minutes">Minutes:</label>
+  <select id="minutes">
+    <option value="1">1:00</option>
+    <option value="1.5">1:30</option>
+    <option value="2">2:00</option>
+    <option value="2.5">2:30</option>
+    <option value="3">3:00</option>
+    <option value="3.5">3:30</option>
+    <option value="4">4:00</option>
+    <option value="4.5">4:30</option>
+    <option value="5">5:00</option>
+  </select>
+</div>
+
+
+<div id="timer">
+  <p id="progress">1/1</p>
+  <p id="time">0:00</p>
+  <p id="total">Total 0:00</p>
+</div>
+<div>
+  <button id="startResetButton">Start</button>
+</div>
+<audio id="beepAudio" src="beep.mp3"></audio>
+<script>
+  const roundsSelect = document.getElementById('rounds');
+  const minutesSelect = document.getElementById('minutes');
+  const progressText = document.getElementById('progress');
+  const timeText = document.getElementById('time');
+  const totalText = document.getElementById('total');
+  const startResetButton = document.getElementById('startResetButton');
+  const beepAudio = document.getElementById('beepAudio'); // Get the audio element
+
+  let currentRound = 1;
+  let totalTime = 0;
+  let totalRemainingTime = 0; // Track total remaining time
+  let isRunning = false;
+  let interval;
+
+  const btnVoltar = document.getElementById("voltar");
+btnVoltar.addEventListener("click", () => {
+  window.location.href = "index.html";
+});
+
+
+  function updateTimerDisplay() {
+    progressText.textContent = `${currentRound}/${roundsSelect.value}`;
+    
+    const remainingTime = parseFloat(minutesSelect.value) * 60 - totalTime;
+    const minutes = Math.floor(remainingTime / 60);
+    const seconds = remainingTime % 60;
+    timeText.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+    
+    const totalMinutes = Math.floor(totalRemainingTime / 60);
+    const totalSeconds = totalRemainingTime % 60;
+    totalText.textContent = `Total ${totalMinutes}:${totalSeconds.toString().padStart(2, '0')}`;
+  }
+
+  function startTimer() {
+    isRunning = true;
+    startResetButton.textContent = 'Reset';
+    totalRemainingTime = parseFloat(minutesSelect.value) * 60 * (roundsSelect.value - currentRound + 1);
+    interval = setInterval(() => {
+      if (totalTime >= (parseFloat(minutesSelect.value) * 60)) {
+        totalTime = 0;
+        currentRound++;
+        if (currentRound > roundsSelect.value) {
+          clearInterval(interval);
+          isRunning = false;
+          startResetButton.textContent = 'Start';
+          alert('Timer completed!');
+        }
+        totalRemainingTime = parseFloat(minutesSelect.value) * 60 * (roundsSelect.value - currentRound + 1);
+        updateTimerDisplay();
+      } else {
+        totalTime++;
+        totalRemainingTime--;
+
+        // Play beep sound for the last 10 seconds
+        if (totalRemainingTime <= 1 && totalRemainingTime >= 0) {
+          beepAudio.play(); // Play the audio
+        }
+
+        updateTimerDisplay();
+      }
+    }, 1000);
+  }
+
+  function resetTimer() {
+    clearInterval(interval);
+    currentRound = 1;
+    totalTime = 0;
+    totalRemainingTime = 0;
+    isRunning = false;
+    startResetButton.textContent = 'Start';
+    updateTimerDisplay();
+  }
+
+  startResetButton.addEventListener('click', () => {
+    if (isRunning) {
+      resetTimer();
+    } else {
+      startTimer();
+    }
+  });
+
+  roundsSelect.addEventListener('change', updateTimerDisplay);
+  minutesSelect.addEventListener('change', updateTimerDisplay);
+
+  updateTimerDisplay();
+</script>
+</body>
+</html>

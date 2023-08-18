@@ -120,13 +120,19 @@ span {
   border-radius: 15px;
 }
 #btn-tabata{
-  width: 50vw;
+  width: 25vw;
   height: 3vh;
   box-shadow: 1px 3px 2px -1px rgba(10, 10, 10, 1);
   border: none !important;
   border-radius: 15px;
 }
-
+#btn-Emom{
+  width: 25vw;
+  height: 3vh;
+  box-shadow: 1px 3px 2px -1px rgba(10, 10, 10, 1);
+  border: none !important;
+  border-radius: 15px;
+}
 .buttons{
   display: flex;
   row-gap: 8px;

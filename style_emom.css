@@ -1,0 +1,59 @@
+
+
+  @import url('https://fonts.googleapis.com/css2?family=Barriecito&family=Laila:wght@300&family=Pacifico&display=swap');
+
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+#startResetButton{
+    background-color: green !important;
+    border: none !important;
+    border-radius: 20px;
+    box-shadow: 4px 3px 18px -4px rgba(10, 10, 10, 1);
+}
+#voltar{
+    margin-top: 20px;
+    border: none !important;
+    border-radius: 20px;
+    box-shadow: 2px 2px 8px -4px rgba(10, 10, 10, 1);
+}
+
+button {
+    padding: 10px 20px;
+    margin: 0 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+#time{
+font-size: 100px;
+
+}
+#total{
+font-size: 40px;
+}
+
+#progress{
+    font-size: 20px;
+}
+
+#escolha{
+    gap: 10px;
+    display: flex;
+    
+    align-items: center;
+}
+    
+
+#rounds,#minutes {
+    width: 20vw;
+    height: 4vh;
+    border: none !important;
+    border-radius: 10px;
+    text-align: center;
+}

@@ -10,7 +10,10 @@
     <div class ='buttons'>
 
       <button id="btn-movimentos">Movimentos</button>
-      <button id="btn-tabata">Tabata</button>
+      <div id="timers">
+        <button id="btn-tabata">Tabata</button>
+        <button id="btn-Emom">Emom</button>
+      </div>
     </div>
 
     <select id="select-week">
@@ -495,6 +498,11 @@ rest ate fechar os 3'
       const btnTabata = document.getElementById("btn-tabata");
       btnTabata.addEventListener("click", () => {
         window.location.href = "timer.html";
+      });
+
+      const btnEmom = document.getElementById("btn-Emom");
+      btnEmom.addEventListener("click", () => {
+        window.location.href = "emom.html";
       });
       const modalCloseBtn = document.querySelector(".modal-content .close-btn");
       modalCloseBtn.addEventListener("click", closeModal);
