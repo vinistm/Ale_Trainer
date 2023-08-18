@@ -84,29 +84,40 @@ btnVoltar.addEventListener("click", () => {
   function startTimer() {
     isRunning = true;
     startResetButton.textContent = 'Reset';
-    totalRemainingTime = parseFloat(minutesSelect.value) * 60 * (roundsSelect.value - currentRound + 1);
-    interval = setInterval(() => {
-      if (totalTime >= (parseFloat(minutesSelect.value) * 60)) {
-        totalTime = 0;
-        currentRound++;
-        if (currentRound > roundsSelect.value) {
-          clearInterval(interval);
-          isRunning = false;
-          startResetButton.textContent = 'Start';
-          alert('Timer completed!');
-        }
+
+    let countdown = 10; // Countdown of 10 seconds
+    const countdownInterval = setInterval(() => {
+      timeText.textContent = `${countdown}`;
+      countdown--;
+
+      if (countdown < 0) {
+        clearInterval(countdownInterval);
+
         totalRemainingTime = parseFloat(minutesSelect.value) * 60 * (roundsSelect.value - currentRound + 1);
-        updateTimerDisplay();
-      } else {
-        totalTime++;
-        totalRemainingTime--;
+        interval = setInterval(() => {
+          if (totalTime >= (parseFloat(minutesSelect.value) * 60)) {
+            totalTime = 0;
+            currentRound++;
+            if (currentRound > roundsSelect.value) {
+              clearInterval(interval);
+              isRunning = false;
+              startResetButton.textContent = 'Start';
+              alert('Acabou, agora descansa');
+            }
+            totalRemainingTime = parseFloat(minutesSelect.value) * 60 * (roundsSelect.value - currentRound + 1);
+            updateTimerDisplay();
+          } else {
+            totalTime++;
+            totalRemainingTime--;
 
-        // Play beep sound for the last 10 seconds
-        if (totalRemainingTime <= 1 && totalRemainingTime >= 0) {
-          beepAudio.play(); // Play the audio
-        }
+            // Play beep sound for the last 10 seconds
+            if (totalRemainingTime <= 1 && totalRemainingTime >= 0) {
+              beepAudio.play(); // Play the audio
+            }
 
-        updateTimerDisplay();
+            updateTimerDisplay();
+          }
+        }, 1000);
       }
     }, 1000);
   }
