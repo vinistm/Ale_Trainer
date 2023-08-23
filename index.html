@@ -17,10 +17,10 @@
     </div>
 
     <select id="select-week">
-      <option value="semana1">31 de Julho a 4 Agosto</option>
-      <option value="semana2">7 a 11 Agosto</option>
-      <option value="semana3">14 a 18 Agosto</option>
-      <option value="semana4">21 a 25 Agosto</option>
+      <option value="semana1">28 de Agosto a 01 Setembro</option>
+      <option value="semana2">4 a 8 Setembro</option>
+      <option value="semana3">11 a 15 Setembro</option>
+      <option value="semana4">18 a 2 Setembro</option>
     </select>
 
     <div class="Card-Modal">
@@ -44,394 +44,6 @@
     <script>
       const treinos = {
         semana1: {
-          "Segunda-feira": `<pre>
-  31/07
-Aquecimento
-3 rounds
-
-30"jumping jacks
-30"shoulder taps plank
-30" push ups
-30" air squats
-30" squat hold
-
-2 rounds
-15" goodmorning
-15" push press
-15" front squats
-
-Tecnica
-3 rounds
-12 biceps curl
-12 bulgarian split squat
-
-Treino
-amrap 12'
-1 double dumbell thruster ( 12 kg)
-30 single under
-2 double dumbell thruster
-30 single under
-3 double dumbell thruster
-30 single under
-4 double dumbell thruster
-30 single under
-...
-</pre>`,
-          "Terça-feira": `<pre>
-  01/08
-  
-Aquecimento
-2 rounds
-20 mountain climb
-10 single under
-20" plank
-5 sit ups
-
-2 rounds
-5 goodmorning
-5 back squats
-5 push press
-5 hang muscle clean
-5 hang power clean
-
-
-Treino
-amrap 30'
-50 single under
-30 sit ups
-15 hang power clean e jerk( barra + 8 kg)
-
-* a cada 10' 600 m run</pre>`,
-          "Quarta-feira": `<pre>
-  02/08
-  Aquecimento
-3 rounds
-200 m run
-30" down dog push ups
-20"plank
-20" mountain climb
-10"v ups
-
-
-Tecnica
-3 rounds
-10 v ups
-10 hollow rocks
-20" superman hold
-15 down dog push ups
-
-
-Treino
-
-5 rounds
-12 v ups
-400 m run
-24 dumbell snatch ( dumbell 8 kg)
-rest '1 entre os rounds
-</pre>`,
-          "Quinta-feira": `<pre>
-  03/08
-  Aquecimento
-2 rounds
-30" samson
-30" push ups down dog
-30" air squats
-
-2 rounds
-5 good morning
-5 back squats
-5 shoulder press
-5 front squats
-5 shoulder press Lento
-5 shoulder press normal
-5 push press
-
-treino
-4 rounds de 3'
-110 single under
-15 double dumbell front squats( 2 dumbell 10 kg)
-max reps shoulder press ( pode ser push press, jerk, shoulder press)</pre>`,
-          "Sexta-feira": `<pre>
-  04/08
-  Aquecimento
-3 rounds
-30" good morning
-30" back squats
-30" deadlift
-15" squat hold
-10 air squats
-5 burpees
-
-tecnica
-3 rounds
-30 russian twisted
-15 barbell hip thrusts
-15 banded face pulls
-
-treino
-5 rounds
-9 hang power clean ( barra + 8 kg)
-45 air squats
-15 burpees
-rest 1'</pre>`,
-        },
-        semana2: {
-          "Segunda-feira": `<pre>
-  07/08
-  Aquecimento
-1' squat hold na parede
-2 rounds
-30" samson
-30" hollow hold
-30" super man
-
-2 rounds
-5 Good Mornings
-5 Back Squats
-5 Snatch Grip Behind-the-Neck Push Press
-5 Snatch Grip Deadlifts
-5 Overhead Squats
-
-
-Tecnica
-3 rounds
-200 m run
-25 sit ups
-
-
-Treino
-amrap 20'
-10 Power Snatches ( barra + 8 kg) pode ser hang
-20 Overhead Squats
-30 V ups
-40 Single Dumbbell Hang Clean & Jerks dumbell 8 kg ( troca de braço a cada 5 reps)
-</pre>`,
-          "Terça-feira": `<pre>
-  08/08
-  Aquecimento
-
-100 m run
-20 Single Unders
-20 Glute Bridges
-100 m run
-20 Reverse Single Unders
-10 Single Leg Glute Bridges
-10 Single Leg Glute Bridges
-100 m run
-
-
-Tecnica
-Acumular
-
-3' Wall Sit
-2' Hollow Hold
-
-Treino
-
-amrap 5'
-buy in
-25 Burpees
-Max 
-50 Single Unders
-15 Front Squats barra + 5 kg
-
-Rest 3'
-
-
-amrap 5' 
-buy in 
-20 Cal Bike
-Max
-50 Single Unders
-10 Front Squats barra + 8 kg
-
-Rest 3 Minutes 
-
-amrap 5' 
-buy in
-400m run
-MAx
-50 Single Unders
-10 Front Squats barra + 10 kg</pre>`,
-          "Quarta-feira": `<pre>
-  09/08
-Aquecimento
-2 rounds
-10 sit ups
-20 air squats
-5 half burpee
-20 single under
-
-
-tecnica
-3 rounds
-10 v ups
-10 hollow rocks
-20" super man
-rest 1'
-
-
-3 rounds
-15 push ups down dog
-30" plank
-20 mountain climb
-rest 1'
-
-treino
-amrap 18'
-2 hang squat clean ( barra + 8 kg)
-80 single under
-16 v ups</pre>`,
-          "Quinta-feira": `<pre>
-  10/08
-  Aquecimento
-3 rounds
-
-30"jumping jacks
-30"shoulder taps plank
-30" push ups
-30" air squats
-30" squat hold
-
-
-tecnica
-
-4 rounds
-8 biceps curl
-8 bulgarian split squat
-
-
-treino
-
-3 rounds
-1000 m bike
-400 m run ( 3% inclinação)
-20 Back rack Lunges ( barra + 8 kg)
-20 lunges sem peso</pre>`,
-          "Sexta-feira": `<pre>
-  11/08
-  Aquecimento
-3 rounds
-30" inchworm push up
-30" samsom
-30" goodmorning ( so com o corpo)
-30" plank
-
-Tecnica
-Tabata
-Bench press/ squat hold 
-
-Tabata
-Mountain climb / sumo air squats
-
-Treino
-15 rounds de 2'
-5 v ups
-10 air squats
-15 sit ups
-
-restante do tempo max de burpee</pre>`,
-        },
-        semana3: {
-          "Segunda-feira": `<pre>
-  14/08
-  Aquecimento
-3 rounds
-20" box step up
-20" mountain climb
-20" samsom
-20" push ups
-200 m bike
-
-Tecnica
-6 * 10 ( 1° serie com a barra vazia, depois vai aumentando, faz 3 a 4 series com 5 kgs cada lado)
-Bench press ( barra + 5 kg)
-
-Treino
-8 single dumbbell box step up ( 1 dumbell de 12 kg)
-10 dumbell snatch
-10 cal bike</pre>`,
-          "Terça-feira": `<pre>
-  15/08
-  Aquecimento
-3 rounds
-1' bike
-20" squat hold
-20" push ups down dog
-20" samson
-20" prancha
-
-Treino
-2 rounds
-21 O.H.S ( barra + 5 kg)
-200 single under
-1400 m bike ( a que fica sentada normal ali)</pre>`,
-          "Quarta-feira": `<pre>
-  16/08
-Aquecimento
-
-
-Tabata
-Mountain climb / Single under
-
-Tabata
-Sumo deadlift high Pull ( barra + 3 kg, não precisa colocar a barra no chão vai ate a altura um pouco a baixo do joelho)/Hollow rock
-
-
-
-Treino
-
-for time
-10 air squats
-20 sit ups
-20 air squats
-20 push ups
-30 air squats
-20 sit ups
-40 air squats
-20 push ups
-50 air squats</pre>`,
-          "Quinta-feira": `<pre>
-  17/08
-Aquecimento
-Tecnica
-amrap 10'
-10 hollow rocks
-10 globet squat ( ktb)
-
-Treino
-For time
-21-15-9
-V ups
-Push press ( barra + 8 kg)
-</pre>`,
-          "Sexta-feira": `<pre>
-  18/08
-Aquecimento
-3 rounds
-20" squat hold
-20" samsom
-20" air squats
-20" jumping jacks
-
-Tecnica
-
-3 x 10 reps
-Bulgarian split ( 1 dumbell de 8 kg)
-São 10 reps cada perna
-
-
-Treino
-
-Emom 15' a cada 3'
-200 m Run
-12 Thruster(barra + 5 kg)
-
-rest ate fechar os 3'
-
-  </pre>`,
-        },
-        semana4: {
           "Segunda-feira": `<pre>
   21/08
 Aquecimento
@@ -513,6 +125,39 @@ Devil press ( 1 dumbell 8 kg)</pre>`,
   Aquecimento
   Tecnica
   Treino.</pre>`,
+        },
+        semana2: {
+          "Segunda-feira": `<pre>
+ 
+  </pre>`,
+          "Terça-feira": `<pre>
+  </pre>`,
+          "Quarta-feira": `<pre>
+  </pre>`,
+          "Quinta-feira": `<pre>
+  </pre>`,
+        },
+        semana2: {
+          "Segunda-feira": `<pre>
+ 
+  </pre>`,
+          "Terça-feira": `<pre>
+  </pre>`,
+          "Quarta-feira": `<pre>
+  </pre>`,
+          "Quinta-feira": `<pre>
+  </pre>`,
+        },
+        semana2: {
+          "Segunda-feira": `<pre>
+ 
+  </pre>`,
+          "Terça-feira": `<pre>
+  </pre>`,
+          "Quarta-feira": `<pre>
+  </pre>`,
+          "Quinta-feira": `<pre>
+  </pre>`,
         },
       };
 
