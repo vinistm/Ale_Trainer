@@ -7,14 +7,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class ='buttons'>
-
-      <button id="btn-movimentos">Movimentos</button>
-      <div id="timers">
-        <button id="btn-tabata">Tabata</button>
-        <button id="btn-Emom">Emom</button>
-      </div>
-    </div>
+    
 
     <select id="select-week">
       <option value="semana1">Treino da Semana</option>
@@ -28,6 +21,10 @@
       <div class="day" data-day="Quarta-feira">Quarta-feira</div>
       <div class="day" data-day="Quinta-feira">Quinta-feira</div>
       <div class="day" data-day="Sexta-feira">Sexta-feira</div>
+    </div>
+
+    <div>
+      <button id="btn-opcoes">Opções</button>
     </div>
 
     <!-- Modal -->
@@ -144,6 +141,7 @@ porem diferente do video onde a mulher esta com o braço aberto vc vai fazer com
         const selectedWeek = document.getElementById("select-week").value;
 
         modalText.innerHTML = treinos[selectedWeek][day];
+      
         modal.style.display = "block";
       }
 
@@ -167,20 +165,11 @@ porem diferente do video onde a mulher esta com o braço aberto vc vai fazer com
       // Event listener para o botão de fechar o modal
       const closeBtn = document.querySelector(".close-btn");
       closeBtn.addEventListener("click", closeModal);
-      const btnMovimentos = document.getElementById("btn-movimentos");
-      btnMovimentos.addEventListener("click", () => {
-        window.location.href = "movimentos.html";
-      });
-
-      const btnTabata = document.getElementById("btn-tabata");
-      btnTabata.addEventListener("click", () => {
-        window.location.href = "timer.html";
-      });
-
-      const btnEmom = document.getElementById("btn-Emom");
+      
+      const btnEmom = document.getElementById("btn-opcoes");
       btnEmom.addEventListener("click", () => {
-        window.location.href = "emom.html";
-      });
+        window.location.href = "opcoes.html";} );
+
       const modalCloseBtn = document.querySelector(".modal-content .close-btn");
       modalCloseBtn.addEventListener("click", closeModal);
     </script>

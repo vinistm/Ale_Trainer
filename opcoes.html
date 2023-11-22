@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style_button.css" />
+</head>
+<body>
+    <button id="btn-voltar">Voltar</button>
+    <div class ='buttons'>
+
+        <button id="btn-movimentos">Movimentos</button>
+        <button id="btn-tabata">Tabata</button>
+        <button id="btn-Emom">Emom</button>
+        
+    </div>
+
+      <script>
+        const btnMovimentos = document.getElementById("btn-movimentos");
+      btnMovimentos.addEventListener("click", () => {
+        window.location.href = "movimentos.html";
+      });
+
+      const btnTabata = document.getElementById("btn-tabata");
+      btnTabata.addEventListener("click", () => {
+        window.location.href = "timer.html";
+      });
+
+      const btnEmom = document.getElementById("btn-Emom");
+      btnEmom.addEventListener("click", () => {
+        window.location.href = "emom.html";
+      });
+
+      const btnvoltar = document.getElementById("btn-voltar");
+      btnvoltar.addEventListener("click", () => {
+        window.location.href = "index.html"; } );
+      </script>
+    
+</body>
+</html>
