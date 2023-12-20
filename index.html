@@ -131,6 +131,41 @@ Amrap 9'
  </pre>`,
           "Quinta-feira": `<pre>
 
+Aquecimento/Tecnica
+4 rounds de 2'
+A)
+30" prancha baixa ( cotovelo)
+30" prancha lateral
+30" prancha lateral
+10 v ups
+
+4 rounds de 2'
+B)
+30" hollow hold
+30" super man hold
+
+4 rounds de 2'
+C)
+30 twisted ( 1 anilha 10 kg)
+30 shoulder taps ( em posicão de prancha)
+
+4 rounds de 2'
+D)
+15 abidominal supra
+12 abidominal infra
+10 v ups
+
+Treino
+
+15 hang clean e jerk ( barra + 8 kg)
+30 step ups
+12 hang clean e jerk 
+24 step ups
+9 hang clean e jerk 
+18 step ups
+
+
+
 
 </pre>`,
           "Sexta-feira": `<pre>
@@ -140,7 +175,6 @@ Amrap 9'
         },
       };
 
-      // Função para abrir o modal com a descrição do movimento
       function openModal(day) {
         const modal = document.querySelector(".modal");
         const modalText = document.getElementById("modal-text");
@@ -151,24 +185,19 @@ Amrap 9'
         modal.style.display = "block";
       }
 
-      // Função para fechar o modal
       function closeModal() {
         const modal = document.querySelector(".modal");
         modal.style.display = "none";
       }
 
-      // Event listeners para os dias da semana
       const days = document.querySelectorAll(".day");
       days.forEach((day) => {
         day.addEventListener("click", () => {
           const selectedDay = day.getAttribute("data-day");
-          openModal(selectedDay); // Altere a semana conforme necessário
+          openModal(selectedDay);
         });
       });
 
-      // Event listener para o botão "Movimentos"
-
-      // Event listener para o botão de fechar o modal
       const closeBtn = document.querySelector(".close-btn");
       closeBtn.addEventListener("click", closeModal);
       
